@@ -7,6 +7,9 @@ public class Obstacle : MonoBehaviour
     Transform playerRef = null;
     Rigidbody myRigidbody;
 
+    [SerializeField]
+    int pointToAdd = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +29,6 @@ public class Obstacle : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //myRigidbody.useGravity = true;
-            //myRigidbody.isKinematic = false;
             playerRef = other.transform;
             gameObject.layer = LayerMask.NameToLayer("Obstacle");
         }
@@ -37,10 +38,7 @@ public class Obstacle : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            playerRef = null;
             gameObject.layer = LayerMask.NameToLayer("Default");
-            //myRigidbody.useGravity = false;
-            //myRigidbody.isKinematic = true;
         }
     }
 
@@ -49,6 +47,10 @@ public class Obstacle : MonoBehaviour
         if(transform.position.y <= -10)
         {
             //Add points to the player
+            if(playerRef != null)
+            {
+                playerRef.GetComponent<Hole>().AddPoints(pointToAdd);
+            }
             Destroy(gameObject);
         }
     }
