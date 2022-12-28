@@ -22,13 +22,14 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player")
         {
-            myRigidbody.useGravity = true;
-            myRigidbody.isKinematic = false;
+            //myRigidbody.useGravity = true;
+            //myRigidbody.isKinematic = false;
             playerRef = other.transform;
+            gameObject.layer = LayerMask.NameToLayer("Obstacle");
         }
     }
 
@@ -37,8 +38,9 @@ public class Obstacle : MonoBehaviour
         if(other.tag == "Player")
         {
             playerRef = null;
-            myRigidbody.useGravity = false;
-            myRigidbody.isKinematic = true;
+            gameObject.layer = LayerMask.NameToLayer("Default");
+            //myRigidbody.useGravity = false;
+            //myRigidbody.isKinematic = true;
         }
     }
 
