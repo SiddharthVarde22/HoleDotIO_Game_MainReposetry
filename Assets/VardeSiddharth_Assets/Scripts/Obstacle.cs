@@ -49,7 +49,15 @@ public class Obstacle : MonoBehaviour
             //Add points to the player
             if(playerRef != null)
             {
-                playerRef.GetComponent<Hole>().AddPoints(pointToAdd);
+                Hole hole;
+                hole = playerRef.GetComponent<Hole>();
+
+                if(hole == null)
+                {
+                    hole = playerRef.parent.GetComponent<Hole>();
+                }
+
+                hole.AddPoints(pointToAdd);
             }
             Destroy(gameObject);
         }
