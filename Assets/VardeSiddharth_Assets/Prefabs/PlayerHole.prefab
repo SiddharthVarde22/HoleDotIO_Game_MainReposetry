@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickInput: {fileID: 0}
-  playerMoveSpeed: 10
+  playerMoveSpeed: 8
 --- !u!136 &8546773184110757518
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
-  size: 3
+  size: 2
 --- !u!1 &8546773184275230130
 GameObject:
   m_ObjectHideFlags: 0

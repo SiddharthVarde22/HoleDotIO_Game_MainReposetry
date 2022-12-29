@@ -29,7 +29,7 @@ public class Hole : MonoBehaviour
     {
         this.points += points;
 
-        if(this.points >= 20)
+        if(this.points >= 50)
         {
             this.points = 0;
             size++;
