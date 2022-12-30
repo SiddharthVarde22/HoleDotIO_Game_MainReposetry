@@ -12,13 +12,15 @@ GameObject:
   - component: {fileID: 2974655690886955906}
   - component: {fileID: 8823836983620190075}
   - component: {fileID: 1254722978160578556}
-  - component: {fileID: 279651322043083425}
+  - component: {fileID: 288473116}
+  - component: {fileID: 288473115}
+  - component: {fileID: 288473114}
   m_Layer: 0
-  m_Name: StreetLamp1_a_FourLights_LP_LOD0
+  m_Name: StreetLamp1_a_FourLights_LP_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6058220181453699508
 Transform:
@@ -27,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7081988414155819943}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -56,6 +58,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -67,6 +71,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -79,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1254722978160578556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   properties:
     schemeGrid: 64
-    currentScheme: 0
+    currentScheme: 10
   mesh: {fileID: 4300000, guid: b1699788b44c4bc4d918ac5606632996, type: 3}
---- !u!64 &279651322043083425
-MeshCollider:
+--- !u!114 &288473116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081988414155819943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192cf5841fc5ba64b84d616f817db96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointToAdd: 1
+  maxDownDistance: 5
+--- !u!65 &288473115
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +125,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d07e95979dc3cf541849b210b5ee3d61, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.48223034, y: 1.0132147, z: 0.48223034}
+  m_Center: {x: 0, y: 0.5039243, z: 0.000000074505806}
+--- !u!54 &288473114
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081988414155819943}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

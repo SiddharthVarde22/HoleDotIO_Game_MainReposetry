@@ -11,6 +11,8 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField]
     int pointToAdd = 3;
+    [SerializeField]
+    float maxDownDistance = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +64,7 @@ public class Obstacle : MonoBehaviour
 
     void CheckIfDead()
     {
-        if(transform.position.y <= -10)
+        if(transform.position.y <= -maxDownDistance)
         {
             //Add points to the player
             if(playerRef != null)
