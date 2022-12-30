@@ -36,4 +36,11 @@ public class Hole : MonoBehaviour
             ChangeSize();
         }
     }
+
+    /*
+    public int GetSize()
+    {
+        return size;
+    }
+    */
 }
