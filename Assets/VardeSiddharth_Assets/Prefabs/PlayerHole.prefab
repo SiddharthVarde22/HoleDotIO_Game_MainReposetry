@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8546773184275230131}
   - component: {fileID: 8546773184275230132}
   - component: {fileID: 8546773184275230133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 8546773184413302302}
   - component: {fileID: 8546773184413302303}
   - component: {fileID: 8546773184413302752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (6)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8546773184575779240}
   - component: {fileID: 8546773184575779241}
   - component: {fileID: 8546773184575779242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (5)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 8546773184902736110}
   - component: {fileID: 8546773184902736111}
   - component: {fileID: 8546773184902736112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (2)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 8546773185197973712}
   - component: {fileID: 8546773185197973713}
   - component: {fileID: 8546773185197973714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (3)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 8546773185269523379}
   - component: {fileID: 8546773185269523380}
   - component: {fileID: 8546773185269523381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (4)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 8546773185589469759}
   - component: {fileID: 8546773185589469696}
   - component: {fileID: 8546773185589469697}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 8546773185668983259}
   - component: {fileID: 8546773185668983260}
   - component: {fileID: 8546773185668983261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SideCollider (7)
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     Transform playerRef = null;
-    Rigidbody myRigidbody;
+    Hole playerHoleRefrence = null;
+    //Rigidbody myRigidbody;
+    //float obstacleSize;
 
     [SerializeField]
     int pointToAdd = 3;
@@ -13,7 +15,10 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();
+        //myRigidbody = GetComponent<Rigidbody>();
+        //obstacleSize = new Vector3(transform.localScale.x, 0, transform.localScale.z).magnitude;
+
+        //Debug.Log(gameObject.name + " "  + obstacleSize);
     }
 
     // Update is called once per frame
@@ -27,10 +32,23 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if(other.tag == "Player")
         {
             playerRef = other.transform;
             gameObject.layer = LayerMask.NameToLayer("Obstacle");
+
+            /*if(playerHoleRefrence == null)
+            {
+                playerHoleRefrence = playerRef.GetComponent<Hole>();
+                if(playerHoleRefrence == null)
+                {
+                    playerHoleRefrence = playerRef.parent.GetComponent<Hole>();
+                }
+            }
+
+            //if()
+            */
         }
     }
 
@@ -49,15 +67,15 @@ public class Obstacle : MonoBehaviour
             //Add points to the player
             if(playerRef != null)
             {
-                Hole hole;
-                hole = playerRef.GetComponent<Hole>();
+                //Hole hole;
+                playerHoleRefrence = playerRef.GetComponent<Hole>();
 
-                if(hole == null)
+                if(playerHoleRefrence == null)
                 {
-                    hole = playerRef.parent.GetComponent<Hole>();
+                    playerHoleRefrence = playerRef.parent.GetComponent<Hole>();
                 }
 
-                hole.AddPoints(pointToAdd);
+                playerHoleRefrence.AddPoints(pointToAdd);
             }
             Destroy(gameObject);
         }
