@@ -1823,10 +1823,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHole
       objectReference: {fileID: 0}
-    - target: {fileID: 8546773184110757513, guid: 320d17d9b155bae45ae0c70e8c88c547, type: 3}
-      propertyPath: size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8546773184110757516, guid: 320d17d9b155bae45ae0c70e8c88c547, type: 3}
       propertyPath: m_RootOrder
       value: 5
