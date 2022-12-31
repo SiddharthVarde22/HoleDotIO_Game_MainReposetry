@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
     Transform playerRef = null;
     Hole playerHoleRefrence = null;
     //Rigidbody myRigidbody;
-    //float obstacleSize;
+    float obstacleSize;
 
     [SerializeField]
     int pointToAdd = 3;
@@ -18,7 +18,9 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         //myRigidbody = GetComponent<Rigidbody>();
-        //obstacleSize = new Vector3(transform.localScale.x, 0, transform.localScale.z).magnitude;
+        BoxCollider myBoxCollider = GetComponent<BoxCollider>();
+        obstacleSize = new Vector3(myBoxCollider.size.x, 0, myBoxCollider.size.z).magnitude;
+
 
         //Debug.Log(gameObject.name + " "  + obstacleSize);
     }
@@ -38,9 +40,8 @@ public class Obstacle : MonoBehaviour
         if(other.tag == "Player")
         {
             playerRef = other.transform;
-            gameObject.layer = LayerMask.NameToLayer("Obstacle");
-
-            /*if(playerHoleRefrence == null)
+            
+            if(playerHoleRefrence == null)
             {
                 playerHoleRefrence = playerRef.GetComponent<Hole>();
                 if(playerHoleRefrence == null)
@@ -49,8 +50,10 @@ public class Obstacle : MonoBehaviour
                 }
             }
 
-            //if()
-            */
+            if(playerHoleRefrence.GetPlayerSize() >= obstacleSize)
+            {
+                gameObject.layer = LayerMask.NameToLayer("Obstacle");
+            }
         }
     }
 
@@ -70,11 +73,14 @@ public class Obstacle : MonoBehaviour
             if(playerRef != null)
             {
                 //Hole hole;
-                playerHoleRefrence = playerRef.GetComponent<Hole>();
-
-                if(playerHoleRefrence == null)
+                if (playerHoleRefrence == null)
                 {
-                    playerHoleRefrence = playerRef.parent.GetComponent<Hole>();
+                    playerHoleRefrence = playerRef.GetComponent<Hole>();
+
+                    if (playerHoleRefrence == null)
+                    {
+                        playerHoleRefrence = playerRef.parent.GetComponent<Hole>();
+                    }
                 }
 
                 playerHoleRefrence.AddPoints(pointToAdd);

@@ -16,6 +16,8 @@ public class Hole : MonoBehaviour
     [SerializeField]
     Image pointsImageRefrence;
 
+    public int totalScore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class Hole : MonoBehaviour
 
     public void AddPoints(int points)
     {
+        totalScore += points;
         this.points += points;
         pointsImageRefrence.fillAmount = ((float)this.points / (float)maxPoints);
 
@@ -47,10 +50,10 @@ public class Hole : MonoBehaviour
         }
     }
 
-    /*
-    public int GetSize()
+    
+    public float GetPlayerSize()
     {
-        return size;
+        return new Vector2(size, size).magnitude;
     }
-    */
+    
 }
