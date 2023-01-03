@@ -15,7 +15,7 @@ public class UiManager : MonoBehaviour
     AsyncOperation loadingSceneOperation = null;
 
     [SerializeField]
-    Text scoreText, timerText;
+    Text scoreText, timerText, GameOverText;
     [SerializeField]
     Image loadingImage;
 
@@ -101,11 +101,16 @@ public class UiManager : MonoBehaviour
                     {
                         Time.timeScale = 0;
                         gameOverPanel.SetActive(true);
+                        if(GameOverText != null)
+                        {
+                            GameOverText.text = "Game Over \n You Scored : "
+                                + playerHoleRefrence.totalScore + " Points";
+                        }
                     }
                 }
                 seconds = 60;
             }
-            timerText.text = "Time : " + minutes + " : " + (int)seconds;
+            timerText.text = minutes + " : " + (int)seconds;
         }
     }
 
@@ -114,7 +119,7 @@ public class UiManager : MonoBehaviour
         //Display Score
         if (scoreText != null)
         {
-            scoreText.text = "Score : " + playerHoleRefrence.totalScore;
+            scoreText.text = "" + playerHoleRefrence.totalScore;
         }
     }
 }
