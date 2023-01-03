@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/VardeSiddharth_Assets/Scenes/HarshYadav_LevelDesign/MainMenu_Harsh_Yadav.unity
+    guid: 4ae87caab3d545a478367e0c127eeffa
+  - enabled: 1
+    path: Assets/VardeSiddharth_Assets/Scenes/HarshYadav_LevelDesign/City (Main scene).unity
+    guid: 1ca82ac5183a74646976d29b08b82287
+  - enabled: 1
+    path: Assets/VardeSiddharth_Assets/Scenes/HarshYadav_LevelDesign/HarshYadav_Buildings_City.unity
+    guid: 002c69cd59ec9f941997d88c9740c8bb
   m_configObjects: {}

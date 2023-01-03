@@ -12,17 +12,28 @@ public class UiManager : MonoBehaviour
     float seconds = 60;
 
     Hole playerHoleRefrence;
+    AsyncOperation loadingSceneOperation = null;
 
     [SerializeField]
     Text scoreText, timerText;
+    [SerializeField]
+    Image loadingImage;
 
     [SerializeField]
-    GameObject gameOverPanel;
+    GameObject gameOverPanel, buttonPanelRefrence, LoadingPanelRefrence;
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         playerHoleRefrence = FindObjectOfType<Hole>();
+        if (LoadingPanelRefrence != null)
+        {
+            LoadingPanelRefrence.SetActive(false);
+        }
+        if(buttonPanelRefrence != null)
+        {
+            buttonPanelRefrence.SetActive(true);
+        }
 
         if(gameOverPanel != null)
         {
@@ -31,21 +42,42 @@ public class UiManager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            SceneManager.LoadSceneAsync(2);
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimerUpdate();
-        ScoreUpdate();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            TimerUpdate();
+            ScoreUpdate();
+        }
+
+        if(loadingSceneOperation != null)
+        {
+            loadingImage.fillAmount = loadingSceneOperation.progress;
+        }
     }
 
     public void OnPlayPressed()
     {
         // load gameplay scene
-        SceneManager.LoadScene(1);
+        loadingSceneOperation =  SceneManager.LoadSceneAsync(1);
+        if(buttonPanelRefrence != null)
+        {
+            buttonPanelRefrence.SetActive(false);
+        }
+        if(LoadingPanelRefrence != null)
+        {
+            LoadingPanelRefrence.SetActive(true);
+        }
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
     }
 
     public void OnOkayPressed()
@@ -56,27 +88,33 @@ public class UiManager : MonoBehaviour
 
     void TimerUpdate()
     {
-        seconds -= Time.deltaTime;
-        if(seconds < 1)
+        if (timerText != null)
         {
-            minutes--;
-            if(minutes < 0)
+            seconds -= Time.deltaTime;
+            if (seconds < 1)
             {
-                //Game Over
-                if (gameOverPanel != null)
+                minutes--;
+                if (minutes < 0)
                 {
-                    Time.timeScale = 0;
-                    gameOverPanel.SetActive(true);
+                    //Game Over
+                    if (gameOverPanel != null)
+                    {
+                        Time.timeScale = 0;
+                        gameOverPanel.SetActive(true);
+                    }
                 }
+                seconds = 60;
             }
-            seconds = 60;
+            timerText.text = "Time : " + minutes + " : " + (int)seconds;
         }
-        timerText.text = "Time : " + minutes + " : " + (int)seconds;
     }
 
     void ScoreUpdate()
     {
         //Display Score
-        scoreText.text = "Score : " + playerHoleRefrence.totalScore;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score : " + playerHoleRefrence.totalScore;
+        }
     }
 }
